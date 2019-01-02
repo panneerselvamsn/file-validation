@@ -1,0 +1,14 @@
+info:
+  description: "Service for File Validation"
+
+spring:
+  application:
+    name: file-validation-service
+
+security:
+  basic:
+    enabled: false
+
+server:
+  port: 9090
+

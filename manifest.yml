@@ -1,0 +1,9 @@
+---
+applications:
+- name:
+  instance: 1
+  host:
+  path:
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  memory: 680M
+  services:
