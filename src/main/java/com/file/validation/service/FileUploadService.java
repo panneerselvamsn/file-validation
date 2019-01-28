@@ -3,6 +3,7 @@ package com.file.validation.service;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -104,9 +105,8 @@ public class FileUploadService {
 		// HashMap
 		for (RecordDesc recordDesc : recordDescList) {
 			if (recordDescHashMap.get(recordDesc.getReference()) == null) {
-				recordDesc.setValid(Double.parseDouble(
-						formatter.format((recordDesc.getStartBalance() + recordDesc.getMutation()))) == Double
-								.parseDouble(formatter.format(recordDesc.getEndBalance())));
+				//recordDesc.setValid(Double.parseDouble(formatter.format((recordDesc.getStartBalance() + recordDesc.getMutation()))) == Double.parseDouble(formatter.format(recordDesc.getEndBalance())));
+				recordDesc.setValid(new BigDecimal((recordDesc.getStartBalance() + recordDesc.getMutation())) == new BigDecimal(recordDesc.getEndBalance()));
 				recordDescHashMap.put(recordDesc.getReference(), recordDesc);
 			}
 		}

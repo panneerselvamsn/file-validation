@@ -45,7 +45,7 @@ public class FileUploadController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @ApiImplicitParam(dataType = "file", name = "records", required = true, paramType = "form")
-    @PostMapping(value = "/upload", headers = "Content-Type= multipart/form-data", produces = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    @PostMapping(value = "/upload", headers = "Content-Type= multipart/form-data", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public List<RecordDesc> handleFileUpload(@RequestParam(value = "file", required = true) MultipartFile file) throws IOException, FileUploadException, BadRequestException {
 

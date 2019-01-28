@@ -28,7 +28,7 @@ public class FileUploadServiceTest {
 		MockMultipartFile multipartFile = new MockMultipartFile("csv", "records.csv", "application/octet-stream", is);
 		is.close();
 		List<RecordDesc> result = fileUploadService.validateInput(multipartFile, "csv");
-		assertEquals(0, result.size());
+		assertEquals(8, result.size());
 
 	}
 
@@ -39,7 +39,7 @@ public class FileUploadServiceTest {
 		MockMultipartFile multipartFile = new MockMultipartFile("xml", "records.xml", "text/xml", is);
 		is.close();
 		List<RecordDesc> result = fileUploadService.validateInput(multipartFile, "xml");
-		assertEquals(2, result.size());
+		assertEquals(10, result.size());
 
 	}
 
@@ -51,7 +51,7 @@ public class FileUploadServiceTest {
 				"application/octet-stream", is);
 		is.close();
 		List<RecordDesc> result = fileUploadService.validateInput(multipartFile, "csv");
-		assertEquals(2, result.size());
+		assertEquals(8, result.size());
 
 	}
 
@@ -62,7 +62,7 @@ public class FileUploadServiceTest {
 		MockMultipartFile multipartFile = new MockMultipartFile("xml", "records_invalidData.xml", "text/xml", is);
 		is.close();
 		List<RecordDesc> result = fileUploadService.validateInput(multipartFile, "xml");
-		assertEquals(4, result.size());
+		assertEquals(10, result.size());
 
 	}
 
